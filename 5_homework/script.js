@@ -6,32 +6,32 @@
 
 P.s. сделал создание списка и его обработку двумя функциями, чтобы не список из
 первого задания не перемешивался со вторым*/ 
-// function createListForFistTask() {
-//     let ul = document.createElement('ul');
-//     document.body.append(ul);
-//     for (let i = 1; i <= 10; i++) {
-//         let li = document.createElement('li');
-//         li.textContent = i;
-//         ul.append(li);
-//     }
-// }
-// createListForFistTask();
-// function createEvenList() {
-//     let li_s = document.querySelectorAll('li');
-//     let liArr = [];
-//     for (let li of li_s) {
-//         let item = Number(li.textContent);
-//         if (item % 2 == 0) {liArr.push(item)};
-//     }
-//     let ul = document.querySelector('ul');
-//     ul.textContent = '';
-//     liArr.forEach(element => {
-//         let li = document.createElement('li');
-//         li.textContent = element;
-//         ul.appendChild(li);
-//     })
-// }
-// createEvenList();
+function createListForFistTask() {
+    let ul = document.createElement('ul');
+    document.body.append(ul);
+    for (let i = 1; i <= 10; i++) {
+        let li = document.createElement('li');
+        li.textContent = i;
+        ul.append(li);
+    }
+}
+createListForFistTask();
+function createEvenList() {
+    let li_s = document.querySelectorAll('li');
+    let liArr = [];
+    for (let li of li_s) {
+        let item = Number(li.textContent);
+        if (item % 2 == 0) {liArr.push(item)};
+    }
+    let ul = document.querySelector('ul');
+    ul.textContent = '';
+    liArr.forEach(element => {
+        let li = document.createElement('li');
+        li.textContent = element;
+        ul.appendChild(li);
+    })
+}
+createEvenList();
 
 /*2-е задание: создать разметку формы с инпутом для текста и селектом для категории
 (добавить несколько option). Под формой должны должен быть список ul. В этот список
