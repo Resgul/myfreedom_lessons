@@ -52,6 +52,10 @@ showArguments(...names);
 объекте нет, задать значения чисел 1 и 2. Все остальные поля объекта записать в
 переменную fields*/
 
+let userObj = {name:'Вася', age:25, gender:'мужчина', status:'холост', religinon:'мусульманин'}
+let {name = 1, status = 2, ...restOfUser} = userObj;
+console.log(restOfUser);
+
 //Функция для перевода направления ветра из градусов в названия сторон света
 function checkWindDirection(windDegrees) {
   let deg = [];
@@ -124,9 +128,6 @@ xmlHttps.onload = function() {
 
     ul.append(li);
   }
-
-  
-  console.log(parsedArray);
 }
 xmlHttps.open("GET", 'https://api.openweathermap.org/data/2.5/forecast?q=Minsk&appid=d2e7c760fd177e0ea6972b92a8c5b26f');
 xmlHttps.send();
