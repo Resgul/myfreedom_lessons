@@ -26,9 +26,15 @@
 //ДЗ 1, 2, 3 не знаю, правильно ли сделано или нет, в первом ошибка квоты, в третьем видео всегда недоступно
 
 function createIframe(id) {
+  let element = document.getElementById('one');
   let iFrame = document.createElement('iframe');
-  iFrame.setAttribute('src',`https://www.youtube.com/embed/${id}?autoplay=1`);
-  return document.body.append(iFrame);
+  if (!element) {
+    iFrame.setAttribute('src',`https://www.youtube.com/embed/${id}?autoplay=1`);
+    iFrame.setAttribute('id',`one`);
+    return document.body.append(iFrame);
+  } else {
+    document.getElementById('one').setAttribute('src',`https://www.youtube.com/embed/${id}?autoplay=1`);  
+    }
 }
 
 document.querySelector('button').addEventListener('click', () =>{
