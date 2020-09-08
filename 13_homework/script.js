@@ -43,6 +43,7 @@ class Logo {
     // на 20px
     this.render() // + дергаем render
   }
+
   moveDown() {
     this.top += 20;
     this.html.style.top = this.top; // метод должен изменять top нашего объекта так
@@ -50,6 +51,7 @@ class Logo {
     // на 20px
     this.render() // + дергаем render
   }
+
   moveLeft() {
     this.left -= 20;
     this.html.style.left = this.left; // метод должен изменять left нашего объекта так
@@ -57,12 +59,23 @@ class Logo {
     // на 20px
     this.render() // + дергаем render
   }
+
   moveRight() {
     this.left += 20;
     this.html.style.left = this.left;// метод должен изменять left нашего объекта так
     // чтобы элемент передвинулся ПРАВЕЕ
     // на 20px
     this.render() // + дергаем render
+  }
+
+  // движение мышью
+  mouseMove() {
+    document.body.addEventListener('mousemove', event => {
+      event.preventDefault();
+      this.left = event.screenX;
+      this.top = event.screenY;
+      this.render();
+    })
   }
 
   // движение стрелками
@@ -79,17 +92,18 @@ class Logo {
         case ('ArrowLeft'): this.moveLeft()
         break;
       }
+      this.render();
     })
   }
 }
 
 const imgUrl = 'http://pngimg.com/uploads/cursor/cursor_PNG102.png';
 var mfLogotip = new Logo(imgUrl);
-console.log(mfLogotip);
 
 // запускаем наше микро-приложение
 mfLogotip.init();
 mfLogotip.arrowMove();
+mfLogotip.mouseMove();
 
 mfLogotip.moveRight();
 mfLogotip.moveRight();
