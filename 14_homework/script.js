@@ -18,13 +18,13 @@ class BaseRequest {
   }
 
   perform() {
-    return fetch(`https://todoappexamplejs.herokuapp.com/items/${this.id}`, this.method)
+    return fetch(`https://todoappexamplejs.herokuapp.com/items/${this.id}.json`, this.requestMethod()).then(response => response.json())
   }
 }
 
 class GetRequest extends BaseRequest {
   requestMethod() {
-    return this.method = {
+    return {
       method: 'GET'
     }
   }
@@ -37,7 +37,7 @@ class PutRequest extends BaseRequest {
   }
 
   requestMethod() {
-    return this.method ={
+    return {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -49,10 +49,10 @@ class PutRequest extends BaseRequest {
 }
 
 let request = new GetRequest(274);
-request.perform().then(data => console.log(data.status))
+request.perform().then(data => console.log(data))
 
-let putRequest = new PutRequest(274, { ok: 'blabla' });
-putRequest.perform().then(data => console.log(data))
+let putRequest = new PutRequest(274, {title: 'RESHAD'});
+putRequest.perform().then(data => console.log(data.title))
 
 // ДЗ 2 класс калькулятор
 
