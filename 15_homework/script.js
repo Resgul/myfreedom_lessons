@@ -32,9 +32,21 @@ let promises = names.map(async name => {
   let data = await response.json();
   return data.name
 })
-Promise.all(promises).then(names => {
+
+
+// Promise.all(promises).then(names => {
+//   names.forEach(name => {
+//     console.log(name);
+//     console.log(name);
+//   })
+// })
+
+
+async function func() {
+  let names = await Promise.all(promises);
   names.forEach(name => {
     console.log(name);
     console.log(name);
   })
-})
+}
+func()
