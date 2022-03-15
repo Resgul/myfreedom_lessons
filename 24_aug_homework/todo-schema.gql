@@ -1,0 +1,4 @@
+type TodoItem {
+  title: String!
+  done: Boolean
+}
