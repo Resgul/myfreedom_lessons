@@ -2,3 +2,7 @@ type TodoItem {
   title: String!
   done: Boolean
 }
+
+type Query {
+   allTodoItems: [TodoItem!]
+}
